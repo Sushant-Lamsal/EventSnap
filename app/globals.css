@@ -229,7 +229,12 @@ body {
     @apply bg-gray-300 !important;
   }
 }
-
+.small-photo{
+   width: 100px;
+  height: auto;
+  margin: 5px;
+  object-fit: cover;
+}
 /* ========================================== CLERK STYLES */
 .cl-logoImage {
   height: 38px;

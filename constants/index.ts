@@ -11,6 +11,10 @@ export const headerLinks = [
     label: 'My Profile',
     route: '/profile',
   },
+  {
+    label:'Find Your Photos',
+    route:'/photos'
+  }
 ]
 
 export const eventDefaultValues = {
