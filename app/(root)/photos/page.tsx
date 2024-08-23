@@ -1,12 +1,11 @@
-import FaceDetectionSearch from "@/components/shared/FaceDetectionSearch";
-import React from "react";
+"use client";
 
-const Photos = () => {
-  return (
-    <div>
-      <FaceDetectionSearch />
-    </div>
-  );
-};
+import { useEffect } from "react";
 
-export default Photos;
+export default function Photos() {
+  useEffect(() => {
+    window.open("http://localhost:5500/frontend", "_blank");
+  }, []);
+
+  return null;
+}

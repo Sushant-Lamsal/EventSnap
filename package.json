@@ -23,6 +23,7 @@
     "@stripe/stripe-js": "^2.2.1",
     "@tensorflow/tfjs": "^4.20.0",
     "@uploadthing/react": "^6.0.2",
+    "canvas": "^2.11.2",
     "class-variance-authority": "^0.7.0",
     "clerk": "^0.8.3",
     "clsx": "^2.1.1",

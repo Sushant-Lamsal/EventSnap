@@ -1,7 +1,7 @@
 // components/FaceDetectionSearch.tsx
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import * as faceapi from "face-api.js/dist/face-api.min.js";
+import * as faceapi from "face-api.js";
 
 interface LabeledFaceDescriptors {
   label: string;
@@ -51,7 +51,7 @@ const FaceDetectionSearch: React.FC = () => {
 
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
-      const img = document.createElement("img");
+      const img = document.createElement("img") as HTMLImageElement;
       img.classList.add("small-photo");
       img.src = URL.createObjectURL(file);
       img.onload = async () => {
@@ -102,6 +102,7 @@ const FaceDetectionSearch: React.FC = () => {
           )
           .withFaceLandmarks()
           .withFaceDescriptor();
+        console.log("Face detected");
         if (detection) {
           searchMatchingPhotos(detection.descriptor);
         } else {
@@ -183,7 +184,7 @@ const FaceDetectionSearch: React.FC = () => {
 
       <br />
       <div
-        className=" p-5 bg-gray-300 flex items-center justify-center flex-wrap  "
+        className="p-5 bg-gray-300 flex items-center justify-center flex-wrap"
         ref={photosDiv}
       ></div>
 
