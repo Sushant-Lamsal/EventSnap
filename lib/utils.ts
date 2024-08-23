@@ -87,6 +87,27 @@ export function removeKeysFromQuery({ params, keysToRemove }: RemoveUrlQueryPara
   )
 }
 
+export function adjustPrice(event: any) {
+  const startTime = Date.parse(event.startDateTime);
+  const endTime = Date.parse(event.endDateTime);
+  const totalDays = (endTime - startTime)/(1000 * 24 * 60 * 60)
+  const daysLeft = (endTime - Date.now())/(1000 * 24 * 60 * 60)
+
+  const thresholdDays = 1;
+  const maxDeductableFactor = 0.5
+
+  let deductionFactor = 1
+  if (daysLeft <= thresholdDays){
+    const minutesLeft = (endTime - Date.now()) / (1000 * 60)
+    const totalMinutes = thresholdDays * 24 * 60
+    deductionFactor = minutesLeft / totalMinutes
+  }
+  deductionFactor = Math.max(maxDeductableFactor, deductionFactor)
+  console.log("Deduction factor: ", deductionFactor)
+  const newPrice = event.price * deductionFactor;
+  return daysLeft <= thresholdDays ? newPrice.toFixed(2) : event.price;
+}
+
 export const handleError = (error: unknown) => {
   console.error(error)
   throw new Error(typeof error === 'string' ? error : JSON.stringify(error))

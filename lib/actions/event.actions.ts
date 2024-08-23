@@ -6,7 +6,7 @@ import { connectToDatabase } from '@/lib/database'
 import Event from '@/lib/database/models/event.model'
 import User from '@/lib/database/models/user.model'
 import Category from '@/lib/database/models/category.model'
-import { handleError } from '@/lib/utils'
+import { adjustPrice, handleError } from '@/lib/utils'
 
 import {
   CreateEventParams,
@@ -49,12 +49,14 @@ export async function createEvent({ userId, event, path }: CreateEventParams) {
 export async function getEventById(eventId: string) {
   try {
     await connectToDatabase()
+    const populatedEvent = await populateEvent(Event.findById(eventId))
+    const adjusted = adjustPrice(populatedEvent)
+    populatedEvent.price = adjusted
+    await Event.findByIdAndUpdate(eventId, {hits: populatedEvent.hits + 1})
 
-    const event = await populateEvent(Event.findById(eventId))
+    if (!populatedEvent) throw new Error('Event not found')
 
-    if (!event) throw new Error('Event not found')
-
-    return JSON.parse(JSON.stringify(event))
+    return JSON.parse(JSON.stringify(populatedEvent))
   } catch (error) {
     handleError(error)
   }
@@ -107,11 +109,18 @@ export async function getAllEvents({ query, limit = 6, page, category }: GetAllE
 
     const skipAmount = (Number(page) - 1) * limit
     const eventsQuery = Event.find(conditions)
-      .sort({ createdAt: 'desc' })
+      .sort({ hits: 'desc' })
       .skip(skipAmount)
       .limit(limit)
+      
 
     const events = await populateEvent(eventsQuery)
+    console.log("Prev price: ", events.map((e:any) => e.price))
+    events.forEach((e: any)=>{
+      e.price = adjustPrice(e)
+    })
+    console.log("New price: ", events.map((e:any) => e.price))
+
     const eventsCount = await Event.countDocuments(conditions)
 
     return {

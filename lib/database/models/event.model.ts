@@ -2,7 +2,6 @@ import { Document, Schema, model, models } from "mongoose";
 import mongoose from 'mongoose'
 
 export interface IEvent extends Document {
-  _id: string;
   title: string;
   description?: string;
   location?: string;
@@ -10,9 +9,11 @@ export interface IEvent extends Document {
   imageUrl: string;
   startDateTime: Date;
   endDateTime: Date;
+  _id: string;
   price: string;
   isFree: boolean;
   url?: string;
+  hits: number;
   category: { _id: string, name: string }
   organizer: { _id: string, firstName: string, lastName: string }
 }
@@ -30,6 +31,7 @@ const EventSchema = new mongoose.Schema({
   url: { type: String },
   category: { type: Schema.Types.ObjectId, ref: 'Category' },
   organizer: { type: Schema.Types.ObjectId, ref: 'User' },
+  hits:{type: Number, default: 0}
 })
 
 const Event = mongoose.models.Event || model('Event', EventSchema);
