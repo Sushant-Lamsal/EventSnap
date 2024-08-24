@@ -1,13 +1,11 @@
 import CategoryFilter from "@/components/shared/CategoryFilter";
 import Collection from "@/components/shared/Collection";
 import Search from "@/components/shared/Search";
-import { Button } from "@/components/ui/button";
 import { getAllEvents } from "@/lib/actions/event.actions";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+
 
 export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
@@ -26,10 +24,10 @@ export default async function Home({ searchParams }: SearchParamProps) {
       <section className="bg-black text-white bg-dotted-pattern bg-contain py-5 md:py-10">
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
-            <h1 className="h1-bold">
-              Host, Connect, Celebrate: Your Events, Our Platform!
+            <h1 id="text" className="h1-bold">
+              Host, Connect, Celebrate: Your Events, <span className='text-purple-600'>Our Platform!</span>
             </h1>
-            <p className="p-regular-20 md:p-regular-24">
+            <p id="para" className="p-regular-20 md:p-regular-24">
               Host events with ease, join with joy, capture your full moments,
               and find your photos effortlessly with our face recognition
               technology.
@@ -79,9 +77,3 @@ export default async function Home({ searchParams }: SearchParamProps) {
   );
 }
 
-<button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-  <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-  <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-    Border Magic
-  </span>
-</button>;
