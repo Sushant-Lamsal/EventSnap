@@ -280,3 +280,20 @@ body {
   background-color: #624cf5 !important;
 }
 
+/* For WebKit browsers */
+::-webkit-scrollbar {
+  width: 5px; /* Adjust the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: black; /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(71, 0, 71); /* Color of the scrollbar thumb */
+  border-radius: 8px; /* Rounded corners of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: purple; /* Color of the scrollbar thumb on hover */
+}

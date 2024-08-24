@@ -21,7 +21,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
   return (
     <>
-      <section className="bg-black text-white bg-dotted-pattern bg-contain py-5 md:py-10 h-screen">
+      <section className="bg-black text-white bg-dotted-pattern bg-contain py-5 md:py-10 h-screen justify-center">
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
             <h1 id="text" className="h1-bold">
