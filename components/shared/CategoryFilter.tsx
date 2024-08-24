@@ -49,11 +49,14 @@ const CategoryFilter = () => {
 
   return (
     <Select onValueChange={(value: string) => onSelectCategory(value)}>
-      <SelectTrigger className="select-field bg-slate-800 text-black">
-        <SelectValue className="text-black" placeholder="Category" />
+      <SelectTrigger className="select-field bg-black text-white border border-purple-700 hover:bg-slate-900">
+        <SelectValue className="text-white" placeholder="Category" />
       </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="All" className="select-item p-regular-14">
+      <SelectContent className="bg-black border border-purple-700">
+        <SelectItem
+          value="All"
+          className="select-item p-regular-14 bg-black text-white "
+        >
           All
         </SelectItem>
 
@@ -61,7 +64,7 @@ const CategoryFilter = () => {
           <SelectItem
             value={category.name}
             key={category._id}
-            className="select-item p-regular-14 bg-slate-800 text-white "
+            className="select-item p-regular-14 bg-black text-white hover:bg-slate-900"
           >
             {category.name}
           </SelectItem>
