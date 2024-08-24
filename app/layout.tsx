@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "EventSnap",
   description: "EventSnap is a platform for event management and photo finder.",
   icons: {
-    icon: "/assets/images/logo.svg",
+    icon: "/assets/images/logo1.jpeg",
   },
 };
 
