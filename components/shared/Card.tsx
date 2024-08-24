@@ -21,7 +21,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
   const isEventCreator = userId === event.organizer._id.toString();
 
   return (
-    <CardSpotlight className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl  md:min-h-[438px]">
+    <CardSpotlight className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl  md:min-h-[438px] border border-purple-950">
     <div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xlshadow-md transition-all hover:shadow-lg md:min-h-[438px]">
       <Link
         href={`/events/${event._id}`}
@@ -68,8 +68,8 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
         </Link>
 
         <div className="flex-between w-full">
-          <p className="p-medium-14 md:p-medium-16 text-blue-300">
-            {' - '}{event.organizer.firstName} {event.organizer.lastName}
+          <p className="p-medium-14 md:p-medium-16 text-blue-200">
+            {' ~ '}{event.organizer.firstName} {event.organizer.lastName}
           </p>
 
           {hasOrderLink && (
