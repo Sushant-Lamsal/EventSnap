@@ -62,32 +62,33 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
             <SelectItem
               key={category._id}
               value={category._id}
-              className="select-item p-regular-14"
+              className="select-item p-regular-14 "
             >
               {category.name}
             </SelectItem>
           ))}
 
         <AlertDialog>
-          <AlertDialogTrigger className="p-medium-14 flex w-full rounded-sm py-3 pl-8 text-primary-500 hover:bg-primary-50 focus:text-primary-500">
+          <AlertDialogTrigger className="p-medium-14 flex w-full rounded-sm py-3 pl-8 text-primary-500 hover:bg-slate-700 bg-slate-800">
             Add new category
           </AlertDialogTrigger>
-          <AlertDialogContent className="bg-white">
+          <AlertDialogContent className="bg-black text-white border border-purple-600 rounded-lg p-4">
             <AlertDialogHeader>
               <AlertDialogTitle>New Category</AlertDialogTitle>
               <AlertDialogDescription>
                 <Input
                   type="text"
                   placeholder="Category name"
-                  className="input-field mt-3"
+                  className="bg-black text-white mt-3"
                   onChange={(e) => setNewCategory(e.target.value)}
                 />
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogCancel className="text-white">Cancel</AlertDialogCancel>
               <AlertDialogAction
                 onClick={() => startTransition(handleAddCategory)}
+                className="bg-black"
               >
                 Add
               </AlertDialogAction>

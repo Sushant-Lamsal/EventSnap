@@ -28,7 +28,7 @@ export function FileUploader({ imageUrl, onFieldChange, setFiles }: FileUploader
   return (
     <div
       {...getRootProps()}
-      className="flex-center bg-dark-3 flex h-72 cursor-pointer flex-col overflow-hidden rounded-xl bg-grey-50">
+      className="flex-center bg-dark-3 flex h-72 cursor-pointer flex-col overflow-hidden rounded-xl bg-black border border-purple-800">
       <input {...getInputProps()} className="cursor-pointer" />
 
       {imageUrl ? (
@@ -42,15 +42,19 @@ export function FileUploader({ imageUrl, onFieldChange, setFiles }: FileUploader
           />
         </div>
       ) : (
-        <div className="flex-center flex-col py-5 text-grey-500">
+        <div className="flex-center flex-col py-5 text-white ">
           <img src="/assets/icons/upload.svg" width={77} height={77} alt="file upload" />
           <h3 className="mb-2 mt-2">Drag photo here</h3>
           <p className="p-medium-12 mb-4">SVG, PNG, JPG</p>
-          <Button type="button" className="rounded-full">
-            Select from computer
-          </Button>
+          <button type='button' className="relative inline-flex h-12 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+            Select From Computer
+            </span>
+          </button>
         </div>
       )}
     </div>
   )
 }
+
