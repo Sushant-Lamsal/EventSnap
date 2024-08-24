@@ -57,7 +57,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         id="events"
         className="wrapper my-8 flex flex-col gap-8 md:gap-12"
       >
-        <h2 className="h2-bold">
+        <h2 className="h2-bold text-white">
           Trusted by {" "}
           <span className="text-purple-700">Thousands of Events</span>
         </h2>

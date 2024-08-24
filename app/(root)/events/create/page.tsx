@@ -8,7 +8,8 @@ const CreateEvent = () => {
   console.log(userId);
   return (
     <>
-      <section className=" bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+      <section className=" bg-cover bg-center py-5 md:py-10">
+        
         <h3 className="wrapper h3-bold text-center sm:text-left text-white">
           Create <span className="text-purple-600"> Event</span>
         </h3>
