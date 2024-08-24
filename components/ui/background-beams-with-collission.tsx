@@ -120,7 +120,7 @@ export const BackgroundBeamsWithCollision = ({
     <div
       ref={parentRef}
       className={cn(
-        "h-96 md:h-[40rem] relative flex items-center w-full justify-center overflow-hidden",
+        "h-96 md:h-[570px] relative flex items-center w-full justify-center overflow-hidden",
         // h-screen if you want bigger
         className
       )}
@@ -254,7 +254,7 @@ const CollisionMechanism = React.forwardRef<
           beamOptions.className
         )}
       />
-      {/* <AnimatePresence>
+      <AnimatePresence>
         {collision.detected && collision.coordinates && (
           <Explosion
             key={`${collision.coordinates.x}-${collision.coordinates.y}`}
@@ -266,7 +266,7 @@ const CollisionMechanism = React.forwardRef<
             }}
           />
         )}
-      </AnimatePresence> */}
+      </AnimatePresence>
     </>
   );
 });
